@@ -1,0 +1,21 @@
+.bg-custom-gray {
+    background-color: #f7f3f2;
+}
+
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cart-hover-button .btn-label {
+    display: none;
+    margin-left: 0.5rem;
+}
+
+.cart-hover-button:hover .btn-label {
+    display: inline;
+}
