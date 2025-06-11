@@ -1,4 +1,5 @@
 import { Card } from "./components/cards.js"
+import { getProducts } from "./api/api.js"
 
 // Para el listado de productos de la grilla
 const productsGrid = document.querySelector('#products-grid')
@@ -8,16 +9,35 @@ const cartSection = document.querySelector('.offcanvas-body')
 const searchProduct = document.querySelector('#buscar-productos') 
 
 //-------------- Ejemplo para Usar las cards
-let cards = ''
-for (let index = 0; index < 4; index++) {
-    cards += Card(
-        index, //ID del producto
-        "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg", 
-        "alt", 
-        "Card Title", 
-    )
+async function renderCards() {
+    const products = await getProducts();
+
+    if (!products.length) {
+        productsGrid.innerHTML = `<p class="text-center">No se pudieron cargar los productos </p>`;
+        return;
+    }
+
+    let cardsHTML = "";
+    products.forEach(product => {
+        cardsHTML += Card(
+            product.id,
+            product.image,
+            product.title,
+            product.title
+        );
+    });
+
+    productsGrid.innerHTML = cardsHTML;
+
+    document.querySelectorAll('.detalle-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const id = e.currentTarget.getAttribute('data-id');
+            abrirModal(id);
+        });
+    });
 }
-productsGrid.innerHTML = cards
+
+renderCards();
 //--------------
 
 //*--------------- Functions
