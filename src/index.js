@@ -9,16 +9,16 @@ const cartSection = document.querySelector('.offcanvas-body')
 const searchProduct = document.querySelector('#buscar-productos') 
 
 //-------------- Ejemplo para Usar las cards
-async function renderCards() {
-    const products = await getProducts();
+let allProducts = []
 
-    if (!products.length) {
-        productsGrid.innerHTML = `<p class="text-center">No se pudieron cargar los productos </p>`;
+async function renderCards(productList) {
+    if (!productList.length) {
+        productsGrid.innerHTML = `<p class="text-center">No se encontraron productos</p>`;
         return;
     }
 
     let cardsHTML = "";
-    products.forEach(product => {
+    productList.forEach(product => {
         cardsHTML += Card(
             product.id,
             product.image,
@@ -37,8 +37,18 @@ async function renderCards() {
     });
 }
 
-renderCards();
+getProducts().then(products => {
+    allProducts = products;
+    renderCards(allProducts);
+});
 //--------------
+searchProduct.addEventListener("input", () => {
+    const searchTerm = searchProduct.value.toLowerCase();
+    const filtered = allProducts.filter(product =>
+        product.title.toLowerCase().includes(searchTerm)
+    );
+    renderCards(filtered);
+});
 
 //*--------------- Functions
 function abrirModal(productId) {
