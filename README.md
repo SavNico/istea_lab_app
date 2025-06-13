@@ -24,6 +24,7 @@ Tareas:
 - Creación y administración del repositorio
 - Estructura del README.md con markdown
 - Maqueta y diseño de la aplicación, incluyendo: favicon, navbar, footer, sidebar del carrito, cards, buscador, archivos base de javascript, etc.
+- Fix de accesibilidad (mejora de botón)
 
 ## Ornella Soledad Leiva Fioravanti
 
