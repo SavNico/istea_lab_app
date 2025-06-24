@@ -38,9 +38,14 @@ Tareas:
 
 ## Lorenzo Segada
 
-Usuario github: 
+Usuario github: **lorenzosegada**
 
 Tareas:
+- Implementación de la llamada a la API de productos para obtener la data desde Fake Store.
+- Renderizado de productos en cards adaptadas al diseño existente.
+- Implementación de buscador en tiempo real para filtrar productos por título.
+- Corrección de la estructura de cards para adaptarse correctamente a diferentes longitudes de título e imagen.
+
 
 ## Franco Hidalgo
 
