@@ -28,9 +28,13 @@ Tareas:
 
 ## Ornella Soledad Leiva Fioravanti
 
-Usuario github: 
+Usuario github: **OrnellaLF**
 
 Tareas:
+- Agregado de un modal para visualizar el detalle de cada producto.
+- Implementación de la lógica de cierre del modal mediante dos opciones: botón de cierre (X) o botón "Agregar al carrito".
+- Integración de mensajes de alerta para informar al usuario sobre acciones realizadas.
+- Pequeño fix: corrección de clase mal escrita ("contianer" a "container").
 
 ## Lorenzo Segada
 
