@@ -51,4 +51,6 @@ Tareas:
 
 Usuario github: 
 
-Tareas:
+Tareas: 
+- Creación del archivo carrito.js 
+- Modificación del archivo index.js en relación a la lógica del carrito
