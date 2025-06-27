@@ -36,9 +36,17 @@ cartSection.appendChild(cartSummaryDiv);
 
 const cartTotalElement = cartSummaryDiv.querySelector("#cart-total");
 
+
+/*Boton de finalizar compra.*/
+const finishCartBtn = document.createElement("button");
+finishCartBtn.id = "finish-cart-btn";
+finishCartBtn.className = "btn btn-dark w-100 mb-2";
+finishCartBtn.textContent = "Finalizar compra";
+cartSection.appendChild(finishCartBtn);
+
 const clearCartBtn = document.createElement("button");
 clearCartBtn.id = "clear-cart-btn";
-clearCartBtn.className = "btn btn-danger w-100";
+clearCartBtn.className = "btn btn-secondary w-100";
 clearCartBtn.textContent = "Vaciar Carrito";
 cartSection.appendChild(clearCartBtn);
 
@@ -71,6 +79,7 @@ async function renderCards(productList) {
   });
 }
 
+/*Función del modal.*/
 function abrirModal(productId) {
   const product = allProducts.find((p) => p.id == productId);
   if (!product) return;
@@ -98,20 +107,19 @@ function abrirModal(productId) {
   }, 0);
 }
 
+/*Implementación de sweetalert2. Tiene un custom class porque me parecía demasiado grande.*/
 function mostrarMensaje(mensaje) {
-  const div = document.createElement("div");
-  div.className =
-    "alert alert-success alert-dismissible fade show position-fixed top-0 end-0 m-4";
-  div.style.zIndex = 9999;
-  div.role = "alert";
-  div.innerHTML = `
-        ${mensaje}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-  document.body.appendChild(div);
-  setTimeout(() => {
-    div.remove();
-  }, 5000);
+  Swal.fire({
+    position: "top-end",
+    title: `${mensaje}`,
+    showConfirmButton: false,
+    timer: 1500,
+    background: '#afedb7',
+    customClass: {
+      popup: 'swal2-chico',
+      title: 'swal2-titulo-chico'
+    }
+  });
 }
 
 // Renderiza los productos actualmente en el carrito dentro del offcanvas-body
@@ -125,10 +133,12 @@ function renderizarCarrito() {
       '<li class="list-group-item text-center text-muted">El carrito está vacío.</li>';
     cartTotalElement.textContent = "$0.00";
     clearCartBtn.disabled = true;
+    finishCartBtn.disabled = true;
     return;
   }
 
   clearCartBtn.disabled = false;
+  finishCartBtn.disabled = false;
 
   carritoActual.forEach((item) => {
     const listItem = document.createElement("li");
@@ -152,7 +162,7 @@ function renderizarCarrito() {
             <div class="col-auto ms-3">
                 <div class="d-flex align-items-center gap-2">
                     <span class="text-end">$${(item.price * item.cantidad).toFixed(2)}</span>
-                    <button class="btn btn-sm btn-danger remove-item" data-id="${item.id}" style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; padding: 0;">x</button>
+                    <button class="btn btn-sm btn-dark remove-item" data-id="${item.id}" style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; padding: 0;">x</button>
                 </div>
             </div>
         </div>
@@ -213,6 +223,14 @@ if (clearCartBtn) {
 if (cartOffcanvasBtn) {
   cartOffcanvasBtn.addEventListener("click", () => {
     renderizarCarrito();
+  });
+}
+
+if (finishCartBtn) {
+  finishCartBtn.addEventListener("click", () => {
+    limpiarCarrito();
+    renderizarCarrito();
+    mostrarMensaje("Gracias por tu compra. ¡Vuelve pronto!");
   });
 }
 

@@ -19,3 +19,16 @@
 .cart-hover-button:hover .btn-label {
     display: inline;
 }
+
+.swal2-chico {
+  width: 320px !important;
+  padding-top: 0.5em !important;
+  padding-bottom: 0.8em !important;
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+  font-size: 18px;
+}
+
+.swal2-titulo-chico {
+  font-size: 18px !important;
+}

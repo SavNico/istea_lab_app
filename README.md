@@ -28,13 +28,17 @@ Tareas:
 
 ## Ornella Soledad Leiva Fioravanti
 
-Usuario github: **OrnellaLF**
+Usuario github: **OrnellaLF** / **ornellaleivaistea**
 
 Tareas:
-- Agregado de un modal para visualizar el detalle de cada producto.
+- Incorporación e implementación de un modal para visualizar el detalle de cada producto.
 - Implementación de la lógica de cierre del modal mediante dos opciones: botón de cierre (X) o botón "Agregar al carrito".
 - Integración de mensajes de alerta para informar al usuario sobre acciones realizadas.
-- Pequeño fix: corrección de clase mal escrita ("contianer" a "container").
+    - Mejora: incorporación de SweetAlert2 para una mejor experiencia visual.
+- Correciones menores / fix: 
+    - Corrección de clase mal escrita ("contianer" a "container").
+    - Ajuste en la paleta de colores de los botones.
+- Incorporación del botón “Finalizar compra” junto con su lógica correspondiente.
 
 ## Lorenzo Segada
 

@@ -13,7 +13,7 @@ export function Modal(product) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="add-to-cart-btn" data-id="${product.id}">Agregar al carrito</button>
+                    <button type="button" class="btn btn-dark" id="add-to-cart-btn" data-id="${product.id}">Agregar al carrito</button>
                 </div>
             </div>
         </div>`;
