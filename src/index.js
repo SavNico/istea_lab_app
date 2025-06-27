@@ -144,16 +144,20 @@ function renderizarCarrito() {
                 <h6 class="my-0 mb-1">${item.title}</h6>
                 <div class="d-flex align-items-center gap-2">
                     <small class="text-muted">Cant:</small>
-                    <button class="btn btn-sm btn-outline-secondary decrease-item" data-id="${item.id}">-</button>
+                    <button class="btn btn-sm btn-outline-secondary decrease-item" data-id="${item.id}" style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; padding: 0;">-</button>
                     <span class="fw-bold">${item.cantidad}</span>
-                    <button class="btn btn-sm btn-outline-secondary increase-item" data-id="${item.id}">+</button>
+                    <button class="btn btn-sm btn-outline-secondary increase-item" data-id="${item.id}" style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; padding: 0;">+</button>
                 </div>
             </div>
-            <div class="col-auto ms-3"> <div class="d-flex align-items-center gap-2"> <span class="text-end">$${(item.price * item.cantidad).toFixed(2)}</span> <button class="btn btn-sm btn-danger remove-item" data-id="${item.id}">x</button>
+            <div class="col-auto ms-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-end">$${(item.price * item.cantidad).toFixed(2)}</span>
+                    <button class="btn btn-sm btn-danger remove-item" data-id="${item.id}" style="width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; padding: 0;">x</button>
                 </div>
             </div>
         </div>
     `;
+
     cartItemsList.appendChild(listItem);
   });
 
