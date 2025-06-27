@@ -54,3 +54,43 @@ export function obtenerTotalCarrito() {
 function guardarCarrito() {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 }
+
+
+/**
+ * Incrementa la cantidad de un producto específico en el carrito.
+ * @param {number} idProducto - El ID del producto cuya cantidad se quiere aumentar.
+ */
+export function sumarCantidadProducto(idProducto) {
+    const item = carrito.find(p => p.id === idProducto);
+    if (item) {
+        item.cantidad++;
+        guardarCarrito();
+    }
+}
+
+/**
+ * Decrementa la cantidad de un producto específico en el carrito.
+ * Si la cantidad llega a 0, el producto es eliminado del carrito.
+ * @param {number} idProducto - El ID del producto cuya cantidad se quiere disminuir.
+ */
+export function restarCantidadProducto(idProducto) {
+    const itemIndex = carrito.findIndex(p => p.id === idProducto);
+    if (itemIndex > -1) {
+        if (carrito[itemIndex].cantidad > 1) {
+            carrito[itemIndex].cantidad--;
+        } else {
+            // Si la cantidad es 1 y se intenta restar, elimina el producto
+            carrito.splice(itemIndex, 1);
+        }
+        guardarCarrito();
+    }
+}
+
+/**
+ * Elimina un producto completamente del carrito, independientemente de su cantidad.
+ * @param {number} idProducto - El ID del producto a eliminar.
+ */
+export function eliminarProductoDelCarrito(idProducto) {
+    carrito = carrito.filter(item => item.id !== idProducto);
+    guardarCarrito();
+}
