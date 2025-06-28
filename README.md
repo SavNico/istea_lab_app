@@ -25,6 +25,8 @@ Tareas:
 - Estructura del README.md con markdown
 - Maqueta y diseño de la aplicación, incluyendo: favicon, navbar, footer, sidebar del carrito, cards, buscador, archivos base de javascript, etc.
 - Fix de accesibilidad (mejora de botón)
+- Fix posición del footer cuando no hay o hay pocos productos
+- Ajuste estético del modal y cambios de posición según es mobile o desktop
 
 ## Ornella Soledad Leiva Fioravanti
 
