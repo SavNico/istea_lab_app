@@ -9,7 +9,7 @@ export function Modal(product) {
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
-                            <img src="${product.image}" class="img-fluid" alt="${product.title}">
+                            <img src="${product.image}" class="img-fluid modal-img-uniforme" alt="${product.title}">
                         </div>
                         <div class="col-12 col-md-6 d-flex flex-column">
                             <p class="custom-gray rounded p-3 mb-3">${product.description}</p>
