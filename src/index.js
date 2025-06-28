@@ -59,7 +59,7 @@ let allProducts = [];
 
 async function renderCards(productList) {
   if (!productList.length) {
-    productsGrid.innerHTML = `<p class="text-center">No se encontraron productos</p>`;
+    productsGrid.innerHTML = `<p class="text-center mx-auto">No se encontraron productos</p>`;
     return;
   }
 

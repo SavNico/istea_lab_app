@@ -1,3 +1,14 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 .bg-custom-gray {
     background-color: #f7f3f2;
 }
@@ -31,4 +42,14 @@
 
 .swal2-titulo-chico {
   font-size: 18px !important;
+}
+
+.footer-text {
+    font-size: 1rem; /* default for desktop */
+}
+
+@media (max-width: 767.98px) {
+    .footer-text {
+        font-size: 0.75rem; /* smaller on mobile */
+    }
 }
